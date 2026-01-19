@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roomio</title>
+</head>
+<body>
+    <h3>Edit the Listing</h3>
+    <form method="POST" action="/listings/<%= editListing._id %>?_method=PATCH">
+        <input name="title" placeholder="Add title" value="<%= editListing.title %>"> 
+        <br>
+        <textarea name="description" placeholder="Add title" ><%= editListing.description %></textarea>
+        <br>
+        <input name="image" placeholder="Add Image" type="text" value="<%= editListing.image %>">
+        <br>
+        <input name="price" placeholder="Add Price" type="number" value="<%= editListing.price %>">
+        <br>
+        <input name="location" placeholder="Add location" type="text" value="<%= editListing.location %>">
+        <br>
+        <input name="country" placeholder="Add Country" type="text" value="<%= editListing.country %>">
+        <br>
+        <button type="submit">Submit</button>
+</body>
+</html>
