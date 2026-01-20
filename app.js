@@ -4,12 +4,14 @@ const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
 const methodOverride = require("method-override");
 const path = require("path");
+const ejsMate = require("ejs-mate");
 
 app.set("view engine" , "ejs");
 app.set("views" , path.join(__dirname, "/views"));
 app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended:true})); // used to decode the post request data entered by the user
 app.use(methodOverride('_method'));
+app.engine("ejs" , ejsMate)
 
 const port = 3000;
 
@@ -44,12 +46,12 @@ app.get('/testListing' ,async (req ,res)=>{
 //Index Route
 app.get("/listings" ,async (req , res)=>{
     const listings = await Listing.find({})
-    res.render("listings.ejs" , {listings});
+    res.render("listings/listings.ejs" , {listings});
 })
 //Add new Listing
 app.get('/listings/new' , (req , res)=>{
     console.log(res)
-   res.render("new.ejs");
+   res.render("listings/new.ejs");
 })
 app.post('/listings' , async (req ,  res)=>{
     let{title , description , image , price , location , country } = req.body;
@@ -74,7 +76,7 @@ app.post('/listings' , async (req ,  res)=>{
 app.get('/listings/:id' , async (req , res)=>{
     let {id} = req.params;
    let listing = await Listing.findById(id);
-   res.render("show.ejs" ,{listing});
+   res.render("listings/show.ejs" ,{listing});
 })
 
 //Update Route
@@ -82,7 +84,7 @@ app.get('/listings/:id/edit' , async (req , res)=>{
 
     let {id} = req.params;
     let editListing = await Listing.findById(id);
-   res.render("edit.ejs" , {editListing});
+   res.render("listings/edit.ejs" , {editListing});
 })
 
 app.patch('/listings/:id' , async (req , res)=>{
