@@ -13,20 +13,21 @@ const listingSchema = new Schema({
     title: {
         type: String,
         required: true,
-
     },
     description: String,
     image: {
         type: String,
-        default: "https://unsplash.com/photos/an-in-n-out-burger-restaurant-at-night-__LLQbt1lEM",
-        set: (v) => v==="" ? "https://unsplash.com/photos/an-in-n-out-burger-restaurant-at-night-__LLQbt1lEM" : v,
+        default: "https://picsum.photos/800/600?random=101",
+        set: (v) =>
+            v === ""
+                ? "https://picsum.photos/800/600?random=101"
+                : v,
     },
     price: Number,
     location: String,
     country: String
+});
 
-})
-
-const Listing = mongoose.model("Listing" , listingSchema);
+const Listing = mongoose.model("Listing", listingSchema);
 
 module.exports = Listing;
