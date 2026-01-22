@@ -5,7 +5,7 @@ const Listing = require("./models/listing.js");
 const methodOverride = require("method-override");
 const path = require("path");
 const ejsMate = require("ejs-mate");
-
+const wrapAsync = require("./utils/wrapAsync.js")
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 app.use(express.static(path.join(__dirname, "public")));
@@ -22,6 +22,7 @@ async function main() {
 main()
     .then(() => console.log("Connection to db successful"))
     .catch(err => console.log(err));
+
 
 
 app.get('/', (req, res) => {
@@ -50,11 +51,12 @@ app.get("/listings", async (req, res) => {
 })
 //Add new Listing
 app.get('/listings/new', (req, res) => {
-    console.log(res)
+    console.log(res);
     res.render("listings/new.ejs");
 })
-app.post('/listings', async (req, res) => {
-    let { title, description, image, price, location, country } = req.body;
+app.post('/listings',wrapAsync( async (req, res) => {
+    
+            let { title, description, image, price, location, country } = req.body;
 
     let addListing = await Listing.insertOne({
         title: title,
@@ -69,7 +71,8 @@ app.post('/listings', async (req, res) => {
         .catch(err => console.log(err));
     console.log(addListing);
     res.redirect('/listings');
-})
+    }
+));
 
 
 //Show Route
@@ -118,6 +121,9 @@ app.delete('/listings/:id', async (req, res) => {
 
 })
 
+app.use((err ,req ,res , next)=>{
+    res.send("Something went wrong");
+});
 
 app.listen(port, () => {
     console.log(`App is listening on the port ${port}`);
