@@ -110,9 +110,8 @@ app.use((req, res, next) => {
 
 // Error Middleware
 app.use((err, req, res, next) => {
-    console.log(err);
     const { statusCode = 500, message = "Something went wrong" } = err;
-    res.status(statusCode).send(message);
+    res.status(statusCode).render("error.ejs", {err});
 });
 
 // ================= SERVER =================
