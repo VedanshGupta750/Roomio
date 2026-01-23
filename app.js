@@ -7,6 +7,8 @@ const path = require("path");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js"); // Error handle for async functions
 const expressError = require("./utils/expressError.js"); // Custom error
+const {listingSchema} = require("./schema.js");
+
 
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
@@ -33,6 +35,16 @@ app.get("/", (req, res) => {
     res.send("App is getting");
 });
 
+//Validate listing middleware
+const validateListing = (req, res, next) => {
+    let { error } = listingSchema.validate(req.body);
+    if (error) {
+        let errMsg = error.details.map((el) => el.message).join(",");
+        throw new expressError(400, errMsg);x
+    } else {
+        next();
+    }
+};
 // Test Route
 app.get("/testListing", wrapAsync(async (req, res) => {
     let sampleListing = new Listing({
@@ -53,28 +65,26 @@ app.get("/listings", wrapAsync(async (req, res) => {
     res.render("listings/listings.ejs", { listings });
 }));
 
-// NEW ROUTES (must be before :id)
 app.get("/listings/new", (req, res) => {
     res.render("listings/new.ejs");
 });
 
-app.post("/listings", wrapAsync(async (req, res) => {
-    if(!req.body.listing){
-        throw new expressError(400 ,"Send Valid data for listing" );
-    }
+app.post("/listings",validateListing, wrapAsync(async (req, res) => {
+    
     const newListing = new Listing(req.body.listing);
     await newListing.save();
     res.redirect("/listings");
 }));
 
 // EDIT ROUTES
-app.get("/listings/:id/edit", wrapAsync(async (req, res) => {
+app.get("/listings/:id/edit", validateListing ,wrapAsync(async (req, res) => {
     let { id } = req.params;
     let editListing = await Listing.findById(id);
     res.render("listings/edit.ejs", { editListing });
 }));
 
-app.patch("/listings/:id", wrapAsync(async (req, res) => {
+//update Route
+app.patch("/listings/:id", validateListing , wrapAsync(async (req, res) => {
     let { id } = req.params;
     let { title, description, image, price, location, country } = req.body;
 
