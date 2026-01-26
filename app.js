@@ -111,7 +111,7 @@ app.patch("/listings/:id", validateListing , wrapAsync(async (req, res) => {
 // SHOW ROUTE (generic :id always after specific routes)
 app.get("/listings/:id", wrapAsync(async (req, res) => {
     let { id } = req.params;
-    let listing = await Listing.findById(id);
+    let listing = await Listing.findById(id).populate("reviews");
     res.render("listings/show.ejs", { listing });
 }));
 
