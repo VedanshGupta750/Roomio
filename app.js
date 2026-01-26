@@ -8,7 +8,7 @@ const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js"); // Error handle for async functions
 const expressError = require("./utils/expressError.js"); // Custom error
 const {listingSchema} = require("./schema.js");
-
+const Review = require("./models/review.js"); //Review Schema Import
 
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
@@ -110,6 +110,23 @@ app.delete("/listings/:id", wrapAsync(async (req, res) => {
     await Listing.findByIdAndDelete(id);
     res.redirect("/listings");
 }));
+
+//Review Route
+//post route
+app.post("/listings/:id/reviews" , async (req , res) =>{
+    let{id} = req.params;
+    let listing = await Listing.findById(id);
+    let newReview = new Review(req.body.review);
+
+    listing.reviews.push(newReview);
+
+    await newReview.save();
+    await listing.save();
+    console.log("new Review saved");
+    res.redirect(`/listings/${id}`);
+
+})
+
 
 // ================= ERROR HANDLING =================
 
