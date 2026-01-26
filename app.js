@@ -40,7 +40,7 @@ const validateListing = (req, res, next) => {
     let { error } = listingSchema.validate(req.body);
     if (error) {
         let errMsg = error.details.map((el) => el.message).join(",");
-        throw new expressError(400, errMsg);x
+        throw new expressError(400, errMsg);
     } else {
         next();
     }
