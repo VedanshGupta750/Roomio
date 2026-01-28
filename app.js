@@ -138,6 +138,16 @@ app.post("/listings/:id/reviews" , validateReview , wrapAsync( async (req , res)
 
 }));
 
+//Delete Route
+app.delete("/listings/:id/reviews/:reviewId" , wrapAsync( async (req ,res )=>{
+      
+    let{id , reviewId} = req.params ;
+    await Listing.findByIdAndUpdate(id , {$pull: {reviews: reviewId}});   // This is for deleting the array in listing // listing ke andar reviews ke andar reviewId match karega and then delete karega
+    await Review.findByIdAndDelete(reviewId);
+
+    res.redirect(`/listings/${id}`);
+}));
+
 
 // ================= ERROR HANDLING =================
 

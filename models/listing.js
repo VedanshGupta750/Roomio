@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Review = require('./review');
 
 const MONGO_URL = 'mongodb://127.0.0.1:27017/Roomio';
 async function main() {
@@ -34,6 +35,15 @@ const listingSchema = new Schema({
     ]
 });
 
+// Middleware for deleting the review from review section completely
+listingSchema.post("findOneAndDelete" , async(listing) =>{
+    if(listing){
+         await Review.deleteMany({
+        _id: {$in: listing.reviews}
+    })
+    }
+   
+});
 const Listing = mongoose.model("Listing", listingSchema);
 
 module.exports = Listing;
