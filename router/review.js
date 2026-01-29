@@ -28,7 +28,7 @@ router.post("/" , validateReview , wrapAsync( async (req , res) =>{
 
     await newReview.save();
     await listing.save();
-    console.log("new Review saved");
+    req.flash("success" , "Rewiew created successfully!");
     res.redirect(`/listings/${id}`);
 
 }));
@@ -39,7 +39,7 @@ router.delete("/:reviewId" , wrapAsync( async (req ,res )=>{
     let{id , reviewId} = req.params ;
     await Listing.findByIdAndUpdate(id , {$pull: {reviews: reviewId}});   // This is for deleting the array in listing // listing ke andar reviews ke andar reviewId match karega and then delete karega
     await Review.findByIdAndDelete(reviewId);
-    console.log('Review Deleted');
+    req.flash("success" , "Rewiew deleted successfully!");
     res.redirect(`/listings/${id}`);
 }));
 

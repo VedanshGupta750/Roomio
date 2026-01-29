@@ -8,7 +8,8 @@ const expressError = require("./utils/expressError.js"); // Custom error
 const listings = require("./router/listing.js");
 const reviews = require("./router/review.js")
 
-const session = require("express-session"); 
+const session = require("express-session");
+const flash = require("connect-flash") ;
 
 
 app.engine("ejs", ejsMate);
@@ -29,7 +30,7 @@ const sessionOptions ={
     }
 };
 
-app.use(session(sessionOptions));
+
 const port = 3000;
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/Roomio";
@@ -46,7 +47,14 @@ app.get("/", (req, res) => {
     res.send("App is getting");
 });
 
+app.use(session(sessionOptions));
+app.use(flash());
 
+app.use((req , res ,next)=>{
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    next();
+})
 
 
 // Test Route
