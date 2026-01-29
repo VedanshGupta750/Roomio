@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync.js"); // Error handle for async functions
-const {listingSchema , reviewSchema} = require("../schema.js");
+const {listingSchema} = require("../schema.js");
 const expressError = require("../utils/expressError.js"); // Custom error
 const Listing = require("../models/listing.js");
 
