@@ -1,5 +1,5 @@
 module.exports = (fn) => {
-    return (req, res, next) => {  // ✅ Only 3 parameters!
+    return (req, res, next) => { 
         fn(req, res, next).catch(next);    
     }
 };

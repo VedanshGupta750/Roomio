@@ -5,8 +5,12 @@ const methodOverride = require("method-override");
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const expressError = require("./utils/expressError.js"); // Custom error
-const listings = require("./routes/listing.js");
-const reviews = require("./routes/review.js")
+
+
+const listingRouter = require("./routes/listing.js");
+const reviewRouter = require("./routes/review.js");
+const userRouter = require("./routes/user.js");
+
 
 const session = require("express-session");
 const flash = require("connect-flash") ;
@@ -89,8 +93,9 @@ app.use((req , res ,next)=>{
 
 
 
-app.use('/listings' , listings);
-app.use("/listings/:id/reviews" , reviews);
+app.use('/listings' , listingRouter);
+app.use("/listings/:id/reviews" , reviewRouter);
+app.use('/' , userRouter);
 
 //For Authentication
 app.use(passport.initialize());
