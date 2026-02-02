@@ -5,11 +5,14 @@ const methodOverride = require("method-override");
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const expressError = require("./utils/expressError.js"); // Custom error
-const listings = require("./router/listing.js");
-const reviews = require("./router/review.js")
+const listings = require("./routes/listing.js");
+const reviews = require("./routes/review.js")
 
 const session = require("express-session");
 const flash = require("connect-flash") ;
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const User = require("./models/user.js");
 
 
 app.engine("ejs", ejsMate);
@@ -49,6 +52,10 @@ app.get("/", (req, res) => {
 
 app.use(session(sessionOptions));
 app.use(flash());
+passport.use(new LocalStrategy(User.authenticate()));    
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use((req , res ,next)=>{
     res.locals.success = req.flash("success");
@@ -56,6 +63,15 @@ app.use((req , res ,next)=>{
     next();
 })
 
+// app.get('/demoUser' ,async (req ,res)=>{
+//     let fakeUser = new User({
+//         email: "fake@gmail.com",
+//         username: "delta-student",
+//     });
+
+//     let registeredUser = await User.register(fakeUser , "Password123");
+//     res.send(registeredUser);
+// });
 
 // Test Route
 // app.get("/testListing", wrapAsync(async (req, res) => {
@@ -71,14 +87,14 @@ app.use((req , res ,next)=>{
 //     res.send("SuccessFull");
 // }));
 
+
+
 app.use('/listings' , listings);
 app.use("/listings/:id/reviews" , reviews);
 
-
-
-
-// ================= ERROR HANDLING =================
-
+//For Authentication
+app.use(passport.initialize());
+app.use(passport.session());
 
 // 404
 app.use((req, res, next) => {
