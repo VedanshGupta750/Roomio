@@ -4,7 +4,7 @@ const wrapAsync = require("../utils/wrapAsync.js"); // Error handle for async fu
 const {listingSchema} = require("../schema.js");
 const expressError = require("../utils/expressError.js"); // Custom error
 const Listing = require("../models/listing.js");
-
+const {isLoggedIn} = require("../middleware.js");
 
 //Validate listing middleware
 const validateListing = (req, res, next) => {
@@ -23,8 +23,8 @@ router.get("/", wrapAsync(async (req, res) => {
     res.render("listings/listings.ejs", { listings });
 }));
 
-// Show route
-router.get("/new", (req, res) => {
+// New lsiting route
+router.get("/new", isLoggedIn ,(req, res) => {
     res.render("listings/new.ejs");
 });
 
@@ -40,7 +40,7 @@ router.get("/:id", wrapAsync(async (req, res) => {
 }));
 
 //edit route
-router.get("/:id/edit"  ,wrapAsync(async (req, res) => {
+router.get("/:id/edit" , isLoggedIn ,wrapAsync(async (req, res) => {
     let { id } = req.params;
     let editListing = await Listing.findById(id);
     if(!editListing){
@@ -53,8 +53,8 @@ router.get("/:id/edit"  ,wrapAsync(async (req, res) => {
 
 
 
-// Post route
-router.post("/",validateListing, wrapAsync(async (req, res) => {
+// Post  Create new Listing route
+router.post("/",isLoggedIn ,validateListing, wrapAsync(async (req, res) => {
    
     const newListing = new Listing(req.body.listing);
     await newListing.save();
@@ -65,7 +65,7 @@ router.post("/",validateListing, wrapAsync(async (req, res) => {
 
 
 //update Route
-router.patch("/:id", validateListing , wrapAsync(async (req, res) => {
+router.patch("/:id", isLoggedIn ,validateListing , wrapAsync(async (req, res) => {
     let { id } = req.params;
 
     await Listing.findByIdAndUpdate(
@@ -77,7 +77,7 @@ router.patch("/:id", validateListing , wrapAsync(async (req, res) => {
 }));
 
 // DELETE ROUTE
-router.delete("/:id", wrapAsync(async (req, res) => {
+router.delete("/:id", isLoggedIn, wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Listing.findByIdAndDelete(id);
     req.flash("success" , "Listing deleted successfully!");

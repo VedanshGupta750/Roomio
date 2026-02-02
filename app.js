@@ -7,6 +7,7 @@ const ejsMate = require("ejs-mate");
 const expressError = require("./utils/expressError.js"); // Custom error
 
 
+
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
@@ -92,14 +93,14 @@ app.use((req , res ,next)=>{
 // }));
 
 
+//For Authentication
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 app.use('/listings' , listingRouter);
 app.use("/listings/:id/reviews" , reviewRouter);
 app.use('/' , userRouter);
-
-//For Authentication
-app.use(passport.initialize());
-app.use(passport.session());
 
 // 404
 app.use((req, res, next) => {
