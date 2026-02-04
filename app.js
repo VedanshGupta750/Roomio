@@ -1,3 +1,8 @@
+if(process.env.NODE_ENV != "production"){
+require('dotenv').config();
+}
+
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -5,7 +10,7 @@ const methodOverride = require("method-override");
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const expressError = require("./utils/expressError.js"); // Custom error
-
+const {storage} = require("./cloudConfig.js");
 
 
 const listingRouter = require("./routes/listing.js");
