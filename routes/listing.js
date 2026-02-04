@@ -31,7 +31,7 @@ router.post("/",isLoggedIn ,validateListing, wrapAsync(ListingController.addNewL
 router.patch("/:id", isLoggedIn , isOwner,validateListing , wrapAsync(ListingController.updateListing));
 
 // DELETE ROUTE
-router.delete("/:id", isLoggedIn,isOwner, wrapAsync(ListingController.deleteListing));
+router.delete("/:id", isLoggedIn,isOwner, wrapAsync(ListingController.destroyListing));
 
 
 
