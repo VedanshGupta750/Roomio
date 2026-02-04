@@ -1,0 +1,36 @@
+[33me700351[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m MVC for review and user
+[33m9cea731[m MVC for listing
+[33m60b5950[m Authorization for /reviews
+[33m578eb0c[m Authorization for /listings
+[33m3a3f649[m Authrntication
+[33mb65327c[m redirectUrl empty resolve
+[33m434cb69[m direct login after signup
+[33m1308e3c[m login signup and logout button crration and middle adjustion for proper working
+[33m9f297ce[m logout route
+[33ma7d569e[m login page connection in routes
+[33mad1328d[m login page
+[33m40eb245[m Signup page
+[33md62b42c[m Passport Schema for Authentication
+[33m9ef1370[m Adding flash messages
+[33m05d5656[m Adding cookie (expire and maxAge)
+[33m7fd3292[m Code refractoring using express router for review route
+[33m179e081[m Code refractoring using express router for listing
+[33m5782f0e[m Handle delete review and delete listing reviews
+[33m212509b[m Review styling
+[33m7243336[m Showing review
+[33m9b77233[m Serverside validation for Review Schema
+[33m3c0d73e[m post route for review.js
+[33m7d73520[m reviw.js and added it to listing.js
+[33m8b7622e[m Validation with JOI
+[33m7dc39c7[m error.ejs Added
+[33m3d942c3[m Custom Error Added
+[33ma00d307[m wrapAsync added
+[33mcb1ee9b[m Client side validation
+[33m0ee0bad[m indexing done
+[33mad516cb[m Show listing styling
+[33m595bd2f[m Edit Listing page styling
+[33mba5683b[m Add Listing page styling
+[33m50ed74c[m Index page styling
+[33m3fbae23[m Footer Done
+[33md25f399[m Navbar Done
+[33mfa7ef32[m Database creation and Routing Done

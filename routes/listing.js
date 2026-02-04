@@ -4,34 +4,25 @@ const wrapAsync = require("../utils/wrapAsync.js"); // Error handle for async fu
 const Listing = require("../models/listing.js");
 const {isLoggedIn , isOwner , validateListing} = require("../middleware.js");
 const  ListingController = require('../controllers/listing.js');
-//Validate listing middleware
 
 
-// INDEX ROUTE
-router.get("/", wrapAsync(ListingController.index));
 
-// New lsiting route
+router
+.route('/')
+.get(wrapAsync(ListingController.index))
+.post(isLoggedIn ,validateListing, wrapAsync(ListingController.addNewListing));
+
+// New lisiting route
 router.get("/new", isLoggedIn ,ListingController.renderForm);
 
-// SHOW ROUTE (generic :id always after specific routes)
-router.get("/:id", wrapAsync(ListingController.showListing));
+router
+.route("/:id")
+.get(wrapAsync(ListingController.showListing))
+.patch(isLoggedIn , isOwner,validateListing , wrapAsync(ListingController.updateListing))
+.delete(isLoggedIn,isOwner, wrapAsync(ListingController.destroyListing))
 
 //edit route
 router.get("/:id/edit" , isLoggedIn, isOwner ,wrapAsync(ListingController.renderEditListingForm));
-
-
-
-
-// Post  Create new Listing route
-router.post("/",isLoggedIn ,validateListing, wrapAsync(ListingController.addNewListing));
-
-
-
-//update Route
-router.patch("/:id", isLoggedIn , isOwner,validateListing , wrapAsync(ListingController.updateListing));
-
-// DELETE ROUTE
-router.delete("/:id", isLoggedIn,isOwner, wrapAsync(ListingController.destroyListing));
 
 
 
