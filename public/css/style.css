@@ -117,3 +117,9 @@ body {
 .btns {
     display: flex;
 }
+
+/* MAP */
+#map { 
+    height: 400px;
+    width: 80vh;
+}
