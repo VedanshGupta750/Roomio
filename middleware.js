@@ -1,5 +1,5 @@
 const Listing = require("./models/listing.js");
-const {listingSchema} = require("./schema.js");
+const {listingSchema, updateListingSchema} = require("./schema.js");
 const expressError = require("./utils/expressError.js"); // Custom error
 const { reviewSchema} = require("./schema.js");
 const Review = require("./models/review.js");
@@ -37,11 +37,24 @@ module.exports.validateListing = (req, res, next) => {
     if (error) {
         let errMsg = error.details.map((el) => el.message).join(",");
         throw new expressError(400, errMsg);
+    }
+        if (!req.file) {
+        throw new expressError(400, "Image is required");
+    }
+    
+    next();
+};
+
+//Validate update listing middleware
+module.exports.validateUpdateListing = (req, res, next) => {
+    let { error } = updateListingSchema.validate(req.body);
+    if (error) {
+        let errMsg = error.details.map((el) => el.message).join(",");
+        throw new expressError(400, errMsg);
     } else {
         next();
     }
 };
-
 //Review Middleware
 module.exports.validateReview = (req, res, next) => {
     let { error } = reviewSchema.validate(req.body);

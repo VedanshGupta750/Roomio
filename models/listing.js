@@ -17,12 +17,8 @@ const listingSchema = new Schema({
     },
     description: String,
     image: {
-        type: String,
-        default: "https://picsum.photos/800/600?random=101",
-        set: (v) =>
-            v === ""
-                ? "https://picsum.photos/800/600?random=101"
-                : v,
+        url: String,
+        filename: String,
     },
     price: Number,
     location: String,
