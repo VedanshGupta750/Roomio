@@ -71,7 +71,6 @@ body {
 .card-img-top {
     border-radius: 1rem !important;
     width: 100% !important;
-    height: 100%;
     object-fit: cover !important;
     /*used to tell an image (or video) how to behave when it has a different shape (aspect ratio) than the container it's sitting in. */
 }
@@ -113,7 +112,8 @@ body {
 /* Show Page */
 
 .show-img {
-    height: 100vh;
+    height: 50vh;
+    width: 50vh;
 }
 
 .btns {
@@ -125,3 +125,4 @@ body {
     height: 400px;
     width: 80vh;
 }
+

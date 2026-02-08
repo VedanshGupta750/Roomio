@@ -347,6 +347,52 @@ const sampleListings = [
     location: "Costa Rica",
     country: "Costa Rica",
   },
+  {
+    "title": "Modern Glass Villa",
+    "description": "Experience luxury in the heart of the Swiss Alps. This glass-walled villa offers panoramic views of snow-capped peaks and cozy fireplace nights.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 2500,
+    "location": "Zermatt",
+    "country": "Switzerland"
+  },
+  {
+    "title": "Rustic Tuscan Farmhouse",
+    "description": "A beautifully restored 18th-century farmhouse surrounded by vineyards and olive groves. Perfect for wine lovers and slow living.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 1200,
+    "location": "Tuscany",
+    "country": "Italy"
+  },
+  {
+    "title": "Urban Loft in Manhattan",
+    "description": "Industrial-chic living in the city that never sleeps. High ceilings, exposed brick, and just steps away from the best coffee shops in Soho.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 3200,
+    "location": "New York City",
+    "country": "United States"
+  },
+  {
+    "title": "Traditional Ryokan",
+    "description": "Immerse yourself in Japanese culture. Features tatami floors, sliding paper doors, and access to a private natural hot spring (onsen).",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 1500,
+    "location": "Kyoto",
+    "country": "Japan"
+  },
+
+  
 ];
 
 module.exports = { data: sampleListings };
