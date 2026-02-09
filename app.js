@@ -56,9 +56,9 @@ main()
 
 
 // Home
-app.get("/", (req, res) => {
-    res.send("App is getting");
-});
+// app.get("/", (req, res) => {
+//     res.send("App is getting");
+// });
 
 app.use(session(sessionOptions));
 app.use(flash());
