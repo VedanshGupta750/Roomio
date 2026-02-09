@@ -133,7 +133,316 @@ const sampleListings = [
   location: "Kyoto",
   country: "Japan",
   category: "Rooms"
+},
+{
+  title: "Charming Cottage in the Cotswolds",
+  description: "Escape to the picturesque Cotswolds in this quaint and charming cottage with a thatched roof.",
+  image: { filename: "listingimage", url: "https://images.unsplash.com/photo-1602088113235-229c19758e9f?auto=format&fit=crop&w=800&q=60" },
+  price: 1200,
+  location: "Cotswolds",
+  country: "United Kingdom",
+  category: "Farms"
+},
+{
+  title: "Historic Brownstone in Boston",
+  description: "Step back in time in this elegant historic brownstone located in the heart of Boston.",
+  image: { filename: "listingimage", url: "https://images.unsplash.com/photo-1533619239233-6280475a633a?auto=format&fit=crop&w=800&q=60" },
+  price: 2200,
+  location: "Boston",
+  country: "United States",
+  category: "Iconic cities"
+},
+{
+  title: "Beachfront Bungalow in Bali",
+  description: "Relax on the sandy shores of Bali in this beautiful beachfront bungalow with a private pool.",
+  image: { filename: "listingimage", url: "https://images.unsplash.com/photo-1602391833977-358a52198938?auto=format&fit=crop&w=800&q=60" },
+  price: 1800,
+  location: "Bali",
+  country: "Indonesia",
+  category: "Beaches"
+},
+{
+  title: "Mountain View Cabin in Banff",
+  description: "Enjoy breathtaking mountain views from this cozy cabin in the Canadian Rockies.",
+  image: { filename: "listingimage", url: "https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?auto=format&fit=crop&w=800&q=60" },
+  price: 1500,
+  location: "Banff",
+  country: "Canada",
+  category: "Mountain"
+},
+{
+  title: "Art Deco Apartment in Miami",
+  description: "Step into the glamour of the 1920s in this stylish Art Deco apartment in South Beach.",
+  image: { filename: "listingimage", url: "https://plus.unsplash.com/premium_photo-1670963964797-942df1804579?auto=format&fit=crop&w=800&q=60" },
+  price: 1600,
+  location: "Miami",
+  country: "United States",
+  category: "Iconic cities"
+},
+{
+  title: "Tropical Villa in Phuket",
+  description: "Escape to a tropical paradise in this luxurious villa with a private infinity pool in Phuket.",
+  image: { filename: "listingimage", url: "https://images.unsplash.com/photo-1470165301023-58dab8118cc9?auto=format&fit=crop&w=800&q=60" },
+  price: 3000,
+  location: "Phuket",
+  country: "Thailand",
+  category: "Pools"
+},
+{
+  title: "Desert Oasis in Dubai",
+  description: "Experience luxury in the middle of the desert in this opulent oasis in Dubai with a private pool.",
+  image: { filename: "listingimage", url: "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=800&q=60" },
+  price: 5000,
+  location: "Dubai",
+  country: "United Arab Emirates",
+  category: "Trending"
+},
+{
+  title: "Rustic Log Cabin in Montana",
+  description: "Unplug and unwind in this cozy log cabin surrounded by the natural beauty of Montana.",
+  image: { filename: "listingimage", url: "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?auto=format&fit=crop&w=800&q=60" },
+  price: 1100,
+  location: "Montana",
+  country: "United States",
+  category: "Camping"
+},
+{
+  title: "Beachfront Villa in Greece",
+  description: "Enjoy the crystal-clear waters of the Mediterranean in this beautiful beachfront villa on a Greek island.",
+  image: { filename: "listingimage", url: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?auto=format&fit=crop&w=800&q=60" },
+  price: 2500,
+  location: "Mykonos",
+  country: "Greece",
+  category: "Beaches"
+},
+{
+  title: "Historic Cottage in Charleston",
+  description: "Experience the charm of historic Charleston in this beautifully restored cottage with a private garden.",
+  image: { filename: "listingimage", url: "https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?auto=format&fit=crop&w=800&q=60" },
+  price: 1600,
+  location: "Charleston",
+  country: "United States",
+  category: "Rooms"
+},
+{
+  title: "Modern Apartment in Tokyo",
+  description: "Explore the vibrant city of Tokyo from this modern and centrally located apartment.",
+  image: { filename: "listingimage", url: "https://images.unsplash.com/photo-1480796927426-f609979314bd?auto=format&fit=crop&w=800&q=60" },
+  price: 2000,
+  location: "Tokyo",
+  country: "Japan",
+  category: "Iconic cities"
+},
+{
+  title: "Lakefront Cabin in New Hampshire",
+  description: "Spend your days by the lake in this cozy cabin in the scenic White Mountains of New Hampshire.",
+  image: { filename: "listingimage", url: "https://images.unsplash.com/photo-1578645510447-e20b4311e3ce?auto=format&fit=crop&w=800&q=60" },
+  price: 1200,
+  location: "New Hampshire",
+  country: "United States",
+  category: "Camping"
+},
+{
+  title: "Ski Chalet in Aspen",
+  description: "Hit the slopes in style with this luxurious ski chalet in the world-famous Aspen ski resort.",
+  image: { filename: "listingimage", url: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=60" },
+  price: 4000,
+  location: "Aspen",
+  country: "United States",
+  category: "Mountain"
+},
+{
+  title: "Secluded Beach House in Costa Rica",
+  description: "Escape to a secluded beach house on the Pacific coast of Costa Rica. Surf, relax, and unwind.",
+  image: { filename: "listingimage", url: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=800&q=60" },
+  price: 1800,
+  location: "Costa Rica",
+  country: "Costa Rica",
+  category: "Beaches"
+},
+{
+  title: "Luxury Villa in the Maldives",
+  description: "Indulge in luxury in this overwater villa in the Maldives with stunning views of the Indian Ocean.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=800&q=60"
+  },
+  price: 6000,
+  location: "Maldives",
+  country: "Maldives",
+  category: "Pools"
+},
+{
+  title: "Ski Chalet in Aspen",
+  description: "Hit the slopes in style with this luxurious ski chalet in the world-famous Aspen ski resort.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=60"
+  },
+  price: 4000,
+  location: "Aspen",
+  country: "United States",
+  category: "Mountain"
+},
+{
+  title: "Secluded Beach House in Costa Rica",
+  description: "Escape to a secluded beach house on the Pacific coast of Costa Rica. Surf, relax, and unwind.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=800&q=60"
+  },
+  price: 1800,
+  location: "Costa Rica",
+  country: "Costa Rica",
+  category: "Beaches"
+},
+{
+  title: "Modern Glass Villa",
+  description: "Experience luxury in the heart of the Swiss Alps. This glass-walled villa offers panoramic views of snow-capped peaks and cozy fireplace nights.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=800&q=60"
+  },
+  price: 2500,
+  location: "Zermatt",
+  country: "Switzerland",
+  category: "Trending"
+},
+{
+  title: "Rustic Tuscan Farmhouse",
+  description: "A beautifully restored 18th-century farmhouse surrounded by vineyards and olive groves. Perfect for wine lovers and slow living.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=800&q=60"
+  },
+  price: 1200,
+  location: "Tuscany",
+  country: "Italy",
+  category: "Farms"
+},
+{
+  title: "Urban Loft in Manhattan",
+  description: "Industrial-chic living in the city that never sleeps. High ceilings, exposed brick, and just steps away from the best coffee shops in Soho.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=60"
+  },
+  price: 3200,
+  location: "New York City",
+  country: "United States",
+  category: "Iconic cities"
+},
+{
+  title: "Traditional Ryokan",
+  description: "Immerse yourself in Japanese culture. Features tatami floors, sliding paper doors, and access to a private natural hot spring (onsen).",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=60"
+  },
+  price: 1500,
+  location: "Kyoto",
+  country: "Japan",
+  category: "Rooms"
+},
+{
+  title: "Formula 1 Grand Prix Apartment",
+  description: "Stay trackside during the Formula 1 weekend with direct views of the race circuit and premium hospitality access.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1549921296-3c1b6f5b1f32?auto=format&fit=crop&w=800&q=60"
+  },
+  price: 4200,
+  location: "Monaco",
+  country: "Monaco",
+  category: "Race"
+},
+{
+  title: "Desert Rally Camp Experience",
+  description: "Experience high-octane desert rally racing with guided dune drives and luxury camping under the stars.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60"
+  },
+  price: 2800,
+  location: "Abu Dhabi",
+  country: "United Arab Emirates",
+  category: "Race"
+},
+{
+  title: "Nordic Ice Racing Lodge",
+  description: "Watch professional ice racing events from a heated glass lodge surrounded by frozen lakes and pine forests.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=800&q=60"
+  },
+  price: 3100,
+  location: "Lapland",
+  country: "Finland",
+  category: "Race"
+},
+{
+  title: "Arctic Glass Igloo Retreat",
+  description: "Sleep beneath the Northern Lights in a heated glass igloo surrounded by untouched Arctic wilderness.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=800&q=60"
+  },
+  price: 3500,
+  location: "Lapland",
+  country: "Finland",
+  category: "Arctic"
+},
+{
+  title: "Polar Expedition Base Camp",
+  description: "Join a guided polar expedition from this remote Arctic base camp with glacier hikes and icebreaker tours.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=800&q=60"
+  },
+  price: 5200,
+  location: "Svalbard",
+  country: "Norway",
+  category: "Arctic"
+},
+{
+  title: "Arctic Fjord Cabin",
+  description: "A secluded wooden cabin overlooking frozen fjords, perfect for whale watching and Arctic photography.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1549887534-1541e9326642?auto=format&fit=crop&w=800&q=60"
+  },
+  price: 2600,
+  location: "Tromsø",
+  country: "Norway",
+  category: "Arctic"
+},
+{
+  title: "Snowmobile Racing Chalet",
+  description: "Stay close to professional snowmobile race tracks with access to Arctic racing experiences and gear.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=60"
+  },
+  price: 2900,
+  location: "Yukon",
+  country: "Canada",
+  category: "Race"
+},
+{
+  title: "Remote Arctic Research Lodge",
+  description: "A unique stay inspired by Arctic research stations, offering extreme cold adventures and stargazing.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=60"
+  },
+  price: 4100,
+  location: "Kalaallit Nunaat",
+  country: "Greenland",
+  category: "Arctic"
 }
+
+
+
 
   
 ];
