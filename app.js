@@ -56,9 +56,8 @@ main()
 
 
 // Home
-// app.get("/", (req, res) => {
-//     res.send("App is getting");
-// });
+// Index Route
+
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -101,7 +100,6 @@ app.use((req , res ,next)=>{
 //     await sampleListing.save();
 //     res.send("SuccessFull");
 // }));
-
 
 
 

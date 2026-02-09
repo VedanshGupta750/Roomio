@@ -43,7 +43,11 @@ const listingSchema = new Schema({
       type: [Number],
       required: true
     }
-    }
+    },
+    category:{
+        type: String,
+        enum:["Trending", "Rooms", "Iconic cities", "Beaches", "Mountain", "Castles", "Pools", "Camping", "Farms", "Arctic", "Race", "Night Safari"]
+    },
 });
 
 // Middleware for deleting the review from review section completely

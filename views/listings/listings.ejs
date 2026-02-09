@@ -1,10 +1,107 @@
 <% layout("/layouts/boilerplate") %>
 
+<style>
+/* Container for the filter bar */
+#filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Individual Filter Item */
+.filter {
+    text-align: center;
+    margin-right: 2rem; /* Spacing between icons */
+    margin-top: 2rem;   /* Spacing from the top */
+    opacity: 0.7;
+    
+    /* Critical for <a> tags */
+    text-decoration: none; /* Removes the underline */
+    color: black;          /* Ensures text is black, not blue */
+    cursor: pointer;
+}
+
+/* Hover Effect */
+.filter:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* Text Size */
+.filter p {
+    font-size: 0.8rem;
+}
+</style>
 
     <body>
-        <h2>All Listings</h2>
+        <div id="filters">
+            <div id="filters">
+    <a href="/listings?category=Trending" class="filter">
+        <div><i class="fa-solid fa-fire"></i></div>
+        <p>Trending</p>
+    </a>
 
-        <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
+    <a href="/listings?category=Rooms" class="filter">
+        <div><i class="fa-solid fa-bed"></i></div>
+        <p>Rooms</p>
+    </a>
+
+    <a href="/listings?category=Iconic cities" class="filter">
+        <div><i class="fa-solid fa-city"></i></div>
+        <p>Iconic Cities</p>
+    </a>
+
+    <a href="/listings?category=Beaches" class="filter">
+        <div><i class="fa-solid fa-umbrella-beach"></i></div>
+        <p>Beaches</p>
+    </a>
+
+    <a href="/listings?category=Mountain" class="filter">
+        <div><i class="fa-solid fa-mountain"></i></div>
+        <p>Mountain</p>
+    </a>
+
+    <a href="/listings?category=Castles" class="filter">
+        <div><i class="fa-brands fa-fort-awesome"></i></div>
+        <p>Castles</p>
+    </a>
+
+    <a href="/listings?category=Pools" class="filter">
+        <div><i class="fa-solid fa-person-swimming"></i></div>
+        <p>Pools</p>
+    </a>
+
+    <a href="/listings?category=Camping" class="filter">
+        <div><i class="fa-solid fa-campground"></i></div>
+        <p>Camping</p>
+    </a>
+
+    <a href="/listings?category=Farms" class="filter">
+        <div><i class="fa-solid fa-wheat-awn"></i></div>
+        <p>Farms</p>
+    </a>
+
+    <a href="/listings?category=Arctic" class="filter">
+        <div><i class="fa-solid fa-snowflake"></i></div>
+        <p>Arctic</p>
+    </a>
+
+    <a href="/listings?category=Race" class="filter">
+        <div><i class="fa-solid fa-flag-checkered"></i></div>
+        <p>Race</p>
+    </a>
+
+    <a href="/listings?category=Night Safari" class="filter">
+        <div><i class="fa-solid fa-moon"></i></div>
+        <p>Night Safari</p>
+    </a>
+</div>
+        </div>
+
+        <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 mt-3">
+            <% if(listings.length === 0) { %>
+    req.
+<% } %>
             <% for(let listing of listings){ %>
                 <a href="/listings/<%= listing._id %>" class="listing-link">
 
