@@ -11,7 +11,7 @@ const path = require("path");
 const ejsMate = require("ejs-mate");
 const expressError = require("./utils/expressError.js"); // Custom error
 const {storage} = require("./cloudConfig.js");
-
+const Listing = require('./models/listing.js');
 
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
@@ -24,8 +24,6 @@ const flash = require("connect-flash") ;
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
-
-
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
@@ -119,9 +117,12 @@ app.use((req , res ,next)=>{
 // }));
 
 
+app.get('/', async (req, res)=>{
+    listings = await Listing.find({});
+   res.render('listings/listings.ejs' ,{listings});
+});
 
-
-app.use(['/listings' ,'/' ], listingRouter);
+app.use('/listings' , listingRouter);
 app.use("/listings/:id/reviews" , reviewRouter);
 app.use('/' , userRouter);
 

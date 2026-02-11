@@ -9,15 +9,15 @@ const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 const geocodingClient = mbxGeocoding({
   accessToken: process.env.MAP_TOKEN,
 });
+// const dbUrl = process.env.ATLASDB_URL;
+// async function main() {
+//     await mongoose.connect(dbUrl);
+// }
+// main()
+//     .then(() => console.log("Connection to db successful"))
+    
+//     .catch(err => console.log(err));
 
-const MONGO_URL = 'mongodb://127.0.0.1:27017/Roomio';
-
-async function main() {
-  await mongoose.connect(MONGO_URL);
-}
-main()
-  .then(() => console.log("Connection successful"))
-  .catch(err => console.log(err));
 
 const initDB = async () => {
 
