@@ -9,14 +9,14 @@ const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 const geocodingClient = mbxGeocoding({
   accessToken: process.env.MAP_TOKEN,
 });
-// const dbUrl = process.env.ATLASDB_URL;
-// async function main() {
-//     await mongoose.connect(dbUrl);
-// }
-// main()
-//     .then(() => console.log("Connection to db successful"))
+const dbUrl = process.env.ATLASDB_URL;
+async function main() {
+    await mongoose.connect(dbUrl);
+}
+main()
+    .then(() => console.log("Connection to db successful"))
     
-//     .catch(err => console.log(err));
+    .catch(err => console.log(err));
 
 
 const initDB = async () => {
@@ -41,7 +41,7 @@ const initDB = async () => {
   // original logic untouched
   initData.data = initData.data.map((obj) => ({
     ...obj,
-    owner: "69808cfbfb1ee1e2fdb2c5e4",
+    owner: "698b2396502b9d37e035e3ea",
   }));
 
   await Listing.insertMany(initData.data);

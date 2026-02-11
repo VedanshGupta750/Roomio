@@ -3,21 +3,34 @@ const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const mapToken = process.env.MAP_TOKEN;
 const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 module.exports.index = async (req, res) => {
-    const { category } = req.query;
-    let listings;
+    const { q, category } = req.query;
+    let dbQuery = {};
 
     if (category) {
-        listings = await Listing.find({ category: category });
-        if(listings.length === 0) {
-            req.flash("error", "No listings found in this category!");
-            return res.redirect("/listings");
-        }
-    } else {
-        listings = await Listing.find({});
+        dbQuery.category = category;
     }
+
+    if (q) {
+        dbQuery.$or = [
+            { title: { $regex: q, $options: "i" } },
+            { location: { $regex: q, $options: "i" } },
+            { country: { $regex: q, $options: "i" } }
+        ];
+    }
+
+    const listings = await Listing.find(dbQuery);
+
+    if (listings.length === 0) {
+        if (q) {
+            req.flash("error", `No listings found for "${q}"!`);
+        } else if (category) {
+            req.flash("error", "No listings found in this category!");
+        }
+        return res.redirect("/listings");
+    }
+
     res.render("listings/listings.ejs", { listings });
 };
-
 module.exports.renderForm = (req, res) => {
     res.render("listings/new.ejs");
 };
